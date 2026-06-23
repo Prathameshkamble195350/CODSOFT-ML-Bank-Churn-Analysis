@@ -157,9 +157,13 @@ print(classification_report(y_test, predictions))
 ### 9️⃣ Model Saving
 
 ```python
+import gzip
 import pickle
 
-pickle.dump(model, open('churn_model.pkl', 'wb'))
+with gzip.open("churn_model.pkl.gz", "rb") as f:
+    model = pickle.load(f)
+
+print("Model loaded successfully!")
 ```
 
 ### 🔟 Customer Churn Prediction
